@@ -23,6 +23,8 @@
 	
 	<view-controller path="/register/add" view-name="registerForm"/>
 	
+	<view-controller path="/" view-name="index"/>
+	
 	<context:component-scan base-package="com.oyster.kong" />
 	
 	

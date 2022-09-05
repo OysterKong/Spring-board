@@ -8,6 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="<c:url value='/css/menu.css'/>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css" />
     <style>
         * { box-sizing:border-box; }
@@ -65,6 +66,16 @@
     <title>회원정보등록</title>
 </head>
 <body>
+<div id="menu">
+	<ul>
+		<li id="logo">fastcampus</li>
+		<li><a href="<c:url value='/'/>">Home</a></li>
+		<li><a href="<c:url value='/board/list'/>">Board</a></li>
+		<li><a href="<c:url value='${loginOutLink}'/>">${loginOut}</a></li>
+		<li><a href="<c:url value='/register/add'/>">Sign in</a></li>
+		<li><a href=""><i class="fa fa-search"></i></a></li>
+	</ul>
+</div>
    <form action="<c:url value="/register/save"/>" method="post" onsubmit="return formCheck(this)">
     <div class="title">Register</div>
     <div id="msg" class="msg">
@@ -73,7 +84,7 @@
 	    </c:if>
     </div> 
     <label for="">아이디</label>
-    <input class="input-field" type="text" name="id" placeholder="8~12자리의 영대소문자와 숫자 조합">
+    <input class="input-field" type="text" name="id" placeholder="8~12자리의 영대소문자와 숫자 조합" autofocus>
     <label for="">비밀번호</label>
     <input class="input-field" type="text" name="pwd" placeholder="8~12자리의 영대소문자와 숫자 조합">
     <label for="">이름</label>

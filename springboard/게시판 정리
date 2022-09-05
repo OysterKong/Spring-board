@@ -1,0 +1,12 @@
+1. 게시판 테이블 sql
+
+CREATE TABLE `boardtest`.`board` (
+  `bno` INT NOT NULL AUTO_INCREMENT,
+  `title` VARCHAR(100) NOT NULL,
+  `content` TEXT NOT NULL,
+  `writer` VARCHAR(30) NOT NULL,
+  `view_cnt` INT NULL DEFAULT 0,
+  `comment_cnt` INT NULL DEFAULT 0,
+  `reg_date` DATE NULL DEFAULT now(),
+  `up_date` DATE NULL DEFAULT now(),
+  PRIMARY KEY (`bno`));

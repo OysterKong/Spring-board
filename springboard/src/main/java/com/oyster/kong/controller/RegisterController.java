@@ -33,7 +33,7 @@ public class RegisterController {
 	}
 
 	private boolean isValid(User user) {
-		return true;
+		return false;
 	}
 
 }
