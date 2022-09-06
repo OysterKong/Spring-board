@@ -10,3 +10,15 @@ CREATE TABLE `boardtest`.`board` (
   `reg_date` DATE NULL DEFAULT now(),
   `up_date` DATE NULL DEFAULT now(),
   PRIMARY KEY (`bno`));
+  
+  
+  ----------------------------위와 동일
+  create table board (
+  	bno int auto_increment primary key,
+  	title varchar(45) not null,
+  	content text not null,
+  	writer varchar(30) not null,
+  	view_cnt int default 0 null,
+  	comment_cnt int default 0 null,
+  	reg_date datetime null
+ );
