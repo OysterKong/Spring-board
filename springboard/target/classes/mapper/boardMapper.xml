@@ -26,6 +26,13 @@
 		WHERE bno = #{bno} AND writer = #{writer}
 	</delete>
 	
+	
+	<!-- 관리자 권한 확인한 뒤 삭제가능하게끔 -->
+	<delete id="deleteForAdmin" parameterType="map">
+		DELETE FROM board
+		WHERE bno = #{bno}
+	</delete>
+	
 	<sql id="selectFromBoard">
         SELECT bno, title, content, writer, view_cnt, comment_cnt, reg_date
         FROM board
