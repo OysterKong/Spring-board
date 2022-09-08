@@ -16,12 +16,11 @@ public class BoardDaoImpl implements BoardDao {
 	@Autowired
 	SqlSession session;
 	
-	String namespace="com.fastcampus.ch4.dao.BoardMapper.";
+	String namespace="com.oyster.kong.dao.BoardMapper.";
 	
 	
 	public BoardDto select(Integer bno) throws Exception {
-		return session.selectOne(namespace+"select", bno);
-		
+		return session.selectOne(namespace+"select", bno);	
 	}
 	
 	@Override
@@ -62,7 +61,6 @@ public class BoardDaoImpl implements BoardDao {
 		return session.selectList(namespace+"selectPage", map);
 	}
 	
-    
     @Override
 	public int increaseViewCnt(Integer bno) throws Exception  {
         return session.update(namespace+"increaseViewCnt", bno);
