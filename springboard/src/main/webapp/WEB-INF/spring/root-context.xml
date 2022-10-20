@@ -19,6 +19,7 @@
 		<property name="password" value="1234"></property>
 	</bean>
 	
+	<!-- MyBatis 설정부분 시작 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"/>
 		<property name="configLocation"  value="classpath:mybatis-config.xml"/>
@@ -28,6 +29,7 @@
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg ref="sqlSessionFactory"/>
 	</bean>
+	<!-- MyBatis 설정부분 끝 -->
 	
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource"/>

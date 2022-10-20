@@ -22,3 +22,38 @@ CREATE TABLE `boardtest`.`board` (
   	comment_cnt int default 0 null,
   	reg_date datetime null
  );
+ 
+ =====================================================================================================================================
+ 
+ 1. 게시판에 사용할 boardMapper 에 sql문 작성 ( 어떤 기능이 필요할지 생각해보고 작성 )
+ - 게시판이니까 기본적인 CRUD - 게시글 읽어오고, 작성하고, 수정하고, 삭제하는데 필요한 sql문과 전체 삭제, 조회수 증가, 댓글수 조회 등등
+ 
+ 2. boardMapper에 작성한 sql문을 토대로 BoardDao를 작성 ( boardMapper에서 parameterType과 resultType을 확인 후 알맞게 작성 )
+ 3. 작성된 BoardDao를 기준으로 interface 작성 ( Refactor - Extract Interface )
+ 4. 작성된 BoardDao를 기준으로 BoardService 작성 ( 여기서는 메서드명을 read, write, modify, remove로 수정만 했을뿐 boardDao를 통해 연결하는 내용부분은 같음 )
+ 5. 작성된 BoardService 기준으로 interface작성 ( Refactor - Extract Interface )
+ 6. BoardController 작성
+ - Controller에서는 리스트를 어떻게 화면에 뿌려줄지, 뿌려주기 전 Db에 담긴 정보들을 뿌리기전 페이지를 어떻게 나눠줄지를 생각해 본다.
+ - 1페이지에 10개씩(boardSize =10) 또 가장 처음 화면에서 page가 null 값이므로 이때 어떻게 설정할지 ( if(page==null) page=1; if(pageSize==null) pageSize=10 으로 기본값 설정 )
+ - boardMapper에서 페이지 계산하는 selectPage 의 값을 받는 부분 - offset, pageSize 에 대해서 controller 단에서 계산하여 Model 에 담아서 view 단으로 넘겨준다는 점.
+ 
+ 7. 기본적인 CRUD (쓰기/읽기/수정/삭제) 기능 구현 전 URI를 정리
+ 
+ 작업 /     URI               / http메서드 /   설명
+ 읽기 = /board/read?bno=번호   / get / 지정된 번호의 게시물을 보여준다
+ 삭제 = /board/remove         / post / 게시물을 삭제한다
+ 쓰기 = /board/write          / get / 게시물을 작성하기 위한 화면을 보여준다
+ 쓰기 = /board/write          / post / 작성한 게시물을 저장한다
+ 수정 = /board/modify?bno=번호 / get / 게시물을 수정하기 위해 읽어온다
+ 수정 = /board/modify         / post / 수정된 게시물을 저장한다
+ 
+ 8. 읽기 기능에 대한 흐름
+ - boardList.jsp 에 뿌려진 제목(title) 을 사용자가 클릭하면 제목에 걸려있는 링크를 따라서 게시물번호(bno) 가 controller로 전달
+ - controller에서는 read 메서드가 넘어온 bno를 받아서 boardService.read(bno)로 전달하고 Db에서 게시물을 읽어서 boardDto에 담아서 contoller로 전달
+ - controller의 read 메서드가 Db에서 읽어온 boardDto를 board.jsp에 전달
+ - board.jsp 에서는 boardDto에 담겨져 있는 ${boardDto.title} 과 ${boardDto.content}를 읽어서 화면에 보여줌
+ 
+ 9. boardController 에 read메서드 작성
+ 
+ 
+ 

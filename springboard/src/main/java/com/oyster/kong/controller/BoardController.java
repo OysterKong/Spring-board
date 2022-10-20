@@ -24,6 +24,22 @@ public class BoardController {
 	@Autowired
 	BoardService boardService;
 	
+	@GetMapping("/read")
+	public String read(Integer bno, Model m) {
+		
+		try {
+			BoardDto boardDto = boardService.read(bno); //boardList에서 전달받는 bno를 받아서 Db에서 읽어와서 Dto에 저장
+			m.addAttribute("boardDto", boardDto);  // Dto에 저장된 title과 content를 board.jsp로 model에 담아 전달
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return "board";
+	}
+	
+	
+	
+	
 	@GetMapping("/list")
 	public String list(Integer page, Integer pageSize, Model m, HttpServletRequest request) {
 		if(!loginCheck(request)) {

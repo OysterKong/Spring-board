@@ -64,7 +64,7 @@
 <body>
 <div id="menu">
 	<ul>
-		<li id="logo">fastcampus</li>
+		<li id="logo">OysterBoard</li>
 		<li><a href="<c:url value='/'/>">Home</a></li>
 		<li><a href="<c:url value='/board/list'/>">Board</a></li>
 		<li><a href="<c:url value='${loginOutLink}'/>">${loginOut}</a></li>
