@@ -49,11 +49,14 @@ CREATE TABLE `boardtest`.`board` (
  
  8. 읽기 기능에 대한 흐름
  - boardList.jsp 에 뿌려진 제목(title) 을 사용자가 클릭하면 제목에 걸려있는 링크를 따라서 게시물번호(bno) 가 controller로 전달
- - controller에서는 read 메서드가 넘어온 bno를 받아서 boardService.read(bno)로 전달하고 Db에서 게시물을 읽어서 boardDto에 담아서 contoller로 전달
+ - controller에서는 read 메서드가 넘어온 bno를 받아서 boardService.read(bno)로 전달하고 Db에서 게시물을 읽어서 boardDto에 담아서 controller로 전달
  - controller의 read 메서드가 Db에서 읽어온 boardDto를 board.jsp에 전달
  - board.jsp 에서는 boardDto에 담겨져 있는 ${boardDto.title} 과 ${boardDto.content}를 읽어서 화면에 보여줌
  
  9. boardController 에 read메서드 작성
+ 
+ 10. 게시판에서 글제목을 클릭하면 해당 글번호에 해당하는 내용을 보여줘야하는데 이는 각 게시물의 고유번호인 bno를 전달받아야함
+ 또 글 내용을 확인 후 목록버튼을 누르면 다시 내가 처음에 확인하던 리스트로 돌아가야하므로 page와 pageSize를 전달받아야함
  
  
  

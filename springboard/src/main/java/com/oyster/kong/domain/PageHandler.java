@@ -34,6 +34,14 @@ public class PageHandler {
 		showNext = endPage != totalPage;
 	}
 	
+	void print() {
+		System.out.println("page = " + page);
+		System.out.print(showPrev ? "[PREV] " : "");
+		for(int i = beginPage; i <= endPage; i++) {
+			System.out.print(i + " ");
+		}
+		System.out.println(showNext ? " [NEXT]" : "");
+	}
 	
 	
 	public int getTotalCnt() {
@@ -125,15 +133,6 @@ public class PageHandler {
 		this.showNext = showNext;
 	}
 
-
-	void print() {
-		System.out.println("page = " + page);
-		System.out.print(showPrev ? "[PREV] " : "");
-		for(int i = beginPage; i <= endPage; i++) {
-			System.out.print(i + " ");
-		}
-		System.out.println(showNext ? " [NEXT]" : "");
-	}
 
 	@Override
 	public String toString() {
