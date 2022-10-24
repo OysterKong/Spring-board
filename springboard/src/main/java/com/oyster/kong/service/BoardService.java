@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.oyster.kong.domain.BoardDto;
+import com.oyster.kong.domain.SearchCondition;
 
 public interface BoardService {
 
@@ -21,8 +22,8 @@ public interface BoardService {
 
 	List<BoardDto> getPage(Map map) throws Exception;
 
-//	int getSearchResultCnt(SearchCondition sc) throws Exception;
-//
-//	List<BoardDto> getSearchResultPage(SearchCondition sc) throws Exception;
+	int getSearchResultCnt(SearchCondition sc) throws Exception;
+
+	List<BoardDto> getSearchResultPage(SearchCondition sc) throws Exception;
 
 }

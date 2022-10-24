@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.oyster.kong.domain.BoardDto;
+import com.oyster.kong.domain.SearchCondition;
 
 @Repository
 public class BoardDaoImpl implements BoardDao {
@@ -30,7 +31,7 @@ public class BoardDaoImpl implements BoardDao {
 	
 	@Override
 	public int deleteAll() {
-		return session.delete(namespace+"delateAll");
+		return session.delete(namespace+"deleteAll");
 	}
 	
 	@Override
@@ -67,18 +68,18 @@ public class BoardDaoImpl implements BoardDao {
     } // int update(String statement, Object parameter)
 
     
-//    @Override
-//	public int searchResultCnt(SearchCondition sc) throws Exception {
+    @Override
+	public int searchResultCnt(SearchCondition sc) throws Exception {
 //        System.out.println("sc in searchResultCnt() = " + sc);
 //        System.out.println("session = " + session);
-//        return session.selectOne(namespace+"searchResultCnt", sc);
-//    } // T selectOne(String statement, Object parameter)
-//
-//    
-//    @Override
-//	public List<BoardDto> searchSelectPage(SearchCondition sc) throws Exception {
-//        return session.selectList(namespace+"searchSelectPage", sc);
-//    } // List<E> selectList(String statement, Object parameter)
+        return session.selectOne(namespace+"searchResultCnt", sc);
+    } // T selectOne(String statement, Object parameter)
+
+    
+    @Override
+	public List<BoardDto> searchSelectPage(SearchCondition sc) throws Exception {
+        return session.selectList(namespace+"searchSelectPage", sc);
+    } // List<E> selectList(String statement, Object parameter)
 	
 	
 

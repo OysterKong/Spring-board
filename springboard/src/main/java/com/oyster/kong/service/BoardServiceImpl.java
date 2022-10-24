@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.oyster.kong.dao.BoardDao;
 import com.oyster.kong.domain.BoardDto;
+import com.oyster.kong.domain.SearchCondition;
 
 @Service
 public class BoardServiceImpl implements BoardService {
@@ -53,14 +54,14 @@ public class BoardServiceImpl implements BoardService {
 		return boardDao.selectPage(map);
 	}
 	
-//    @Override
-//	public int getSearchResultCnt(SearchCondition sc) throws Exception {
-//        return boardDao.searchResultCnt(sc);
-//    }
-//
-//    @Override
-//	public List<BoardDto> getSearchResultPage(SearchCondition sc) throws Exception {
-//        return boardDao.searchSelectPage(sc);
-//    }
+    @Override
+	public int getSearchResultCnt(SearchCondition sc) throws Exception {
+        return boardDao.searchResultCnt(sc);
+    }
+
+    @Override
+	public List<BoardDto> getSearchResultPage(SearchCondition sc) throws Exception {
+        return boardDao.searchSelectPage(sc);
+    }
 
 }
