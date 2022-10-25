@@ -7,6 +7,7 @@
 	<!-- Mapper에서 type을 간단하게 적기위해서 Alias 지정하는 란 ( 여러개 지정 가능 ) -->
 	<typeAliases>
  		<typeAlias alias="BoardDto" type="com.oyster.kong.domain.BoardDto"/>
+ 		<typeAlias alias="CommentDto" type="com.oyster.kong.domain.CommentDto"/>
  		<typeAlias alias="SearchCondition" type="com.oyster.kong.domain.SearchCondition"/>
 	</typeAliases>
 	

@@ -170,7 +170,7 @@ public class BoardController {
 //		} else {
 //			return false;
 //		}
-		System.out.println("session이 있는지 없는지 확인용 = "+session.getId());
+//		System.out.println("session이 있는지 없는지 확인용 = "+session.getId());
 		return session.getAttribute("id")!=null;
 	}
 

@@ -68,5 +68,48 @@ CREATE TABLE `boardtest`.`board` (
  13. <c:out value=  /> - 웹상에서 글을 쓸때 html tag를 통해 심각한 오류를 발생시킬수 있는 위험을 막기위해서는 글제목 또는 내용에 out 태그를 통해 막아주어야한다는 점 잊지말자.
  
  
+ 14. 댓글기능 위한 테이블
+ 
+ - cno : 댓글번호
+ - bno : 게시물번호
+ - pcno : 대댓글번호
+ - comment : 댓글내용
+ - commenter : 댓글작성자
+ - reg_date : 댓글작성일
+ - up_date : 댓글수정일
+ 
+ -------------------------------------------------------------------------------------------
+ 
+ 	CREATE TABLE `boardtest`.`comment` (
+	  `cno` INT NOT NULL AUTO_INCREMENT,
+	  `bno` INT NOT NULL,
+	  `pcno` INT NULL,
+	  `comment` VARCHAR(3000) NULL,
+	  `commenter` VARCHAR(30) NULL,
+	  `reg_date` DATETIME NULL DEFAULT now(),
+	  `up_date` DATETIME NULL DEFAULT now(),
+	  PRIMARY KEY (`cno`))
+	ENGINE = InnoDB
+	DEFAULT CHARACTER SET = utf8;
+ 
+ 
+   create table 'boardtest', 'comment' (
+  	'cno' int auto_increment not null primary key,
+  	'bno' int not null,
+  	'pcno' int null,
+  	'comment' varchar(3000) null,
+  	'commenter' varchar(30) null,
+  	'reg_date' datetime null default now(),
+  	'up_date' datetime null default now()
+ );
+ 
+ 
+ 15. @PathVariable 는 쿼리스트링 (ex : http://localhost/kong/comments?bno=426 ) 방식이 아니라 번호를 지정입력되는 경우 ( ex : http://localhost/kong/comments/3 ) 에
+  @PathVariable 를 적어줘야 / 이후 입력되어 실행할 수 있다.
+  
+ 16. @ResponseBody와 @Controller 를 합친 어노테이션 = @RestController 하나로 클래스 안 모든 메서드에 @ResponseBody 붙인 효과
+
+ 
+ 
  
  
