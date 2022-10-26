@@ -101,6 +101,9 @@
     </c:if>
     <button type="button" id="listBtn" class="btn btn-list"><i class="fa fa-bars"></i> 목록</button>
   </form>
+  <div>
+	<jsp:include page="commentsample.jsp"/>
+  </div>
 </div>
 <script>
   $(document).ready(function(){

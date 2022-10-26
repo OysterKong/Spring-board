@@ -28,6 +28,8 @@ public class BoardController {
 	@Autowired
 	BoardService boardService;
 	
+//	CommentService commentService;
+	
 	@PostMapping("/modify")
 	public String modify(BoardDto boardDto,Integer page, Integer pageSize, Model m, HttpSession session, RedirectAttributes rattr ) {
 		
