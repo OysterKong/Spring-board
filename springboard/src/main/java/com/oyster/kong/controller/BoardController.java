@@ -17,9 +17,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.oyster.kong.domain.BoardDto;
+import com.oyster.kong.domain.CommentDto;
 import com.oyster.kong.domain.PageHandler;
 import com.oyster.kong.domain.SearchCondition;
 import com.oyster.kong.service.BoardService;
+import com.oyster.kong.service.CommentService;
 
 @Controller
 @RequestMapping("/board")
@@ -27,8 +29,8 @@ public class BoardController {
 	
 	@Autowired
 	BoardService boardService;
-	
-//	CommentService commentService;
+	@Autowired
+	CommentService commentService;
 	
 	@PostMapping("/modify")
 	public String modify(BoardDto boardDto,Integer page, Integer pageSize, Model m, HttpSession session, RedirectAttributes rattr ) {
@@ -122,6 +124,7 @@ public class BoardController {
 		
 		try {
 			BoardDto boardDto = boardService.read(bno); //boardList에서 전달받는 bno를 받아서 Db에서 읽어와서 Dto에 저장
+//			CommentDto commentDto = commentService.read(bno);
 			m.addAttribute("boardDto", boardDto);  // Dto에 저장된 title과 content를 board.jsp로 model에 담아 전달
 			m.addAttribute("page", page); // 목록버튼을 눌렀을시 기존의 리스트로 돌아가기위해 page 정보를 view로 전달해줘야함
 			m.addAttribute("pageSize", pageSize); // 목록버튼을 눌렀을시 기존의 리스트로 돌아가기위해 pageSize 정보를 view로 전달해줘야함

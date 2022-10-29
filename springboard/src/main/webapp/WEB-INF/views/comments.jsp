@@ -373,7 +373,7 @@ let toHtml = function(comments) {
 		tmp += ' data-bno='+ comment.bno + '>'
 		if(comment.cno!=comment.pcno)
 		tmp += 'ㄴ'
-		tmp += ' 작성자=<span class="commenter">' + comment.commenter + '</span>'
+		tmp += ' 댓글작성자=<span class="commenter">' + comment.commenter + '</span>'
 		tmp += ' 댓글내용=<span class="comment">' + comment.comment + '</span>'
 		tmp += ' 작성일='+comment.up_date
 		tmp += '<button class="delBtn">삭제</button>'

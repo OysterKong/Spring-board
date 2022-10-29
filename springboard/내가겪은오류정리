@@ -6,5 +6,11 @@ org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis
 ### Error updating database.  Cause: java.lang.IllegalArgumentException: Mapped Statements collection does not contain value for com.oyster.kong.dao.BoardMapper.delateAll
 ### Cause: java.lang.IllegalArgumentException: Mapped Statements collection does not contain value for com.oyster.kong.dao.BoardMapper.delateAll
 
+2. Attribute "resultType" must be declared for element type "insert".
+insert, update, delete 는 resultType은 int로 자동으로 반환하므로 resultType 을 빼고 parameterType만 선언해주면 된다.
 
-2.
+3. 첫째, mybatis-config.xml 생성하지 않았고 근본적인 문제는 mapper에 선언해둔 alias를 지정하지 않아서 생기는 오류
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' 
+defined in ServletContext resource [/WEB-INF/spring/root-context.xml]: Invocation of init method failed; nested exception is java.io.FileNotFoundException:
+ class path resource [mybatis-config.xml] cannot be opened because it does not exist
+ 

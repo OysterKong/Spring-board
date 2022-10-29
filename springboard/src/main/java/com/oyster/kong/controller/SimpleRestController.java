@@ -13,7 +13,7 @@ public class SimpleRestController {
 	
     @GetMapping("/test")
     public String test() {
-    	return "comments";
+    	return "commentsample";
     }
 
 //    @PostMapping("/send")
