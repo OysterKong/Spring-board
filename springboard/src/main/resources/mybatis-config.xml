@@ -8,6 +8,7 @@
 	<typeAliases>
  		<typeAlias alias="BoardDto" type="com.oyster.kong.domain.BoardDto"/>
  		<typeAlias alias="CommentDto" type="com.oyster.kong.domain.CommentDto"/>
+ 		<typeAlias alias="MemberDto" type="com.oyster.kong.domain.MemberDto"/>
  		<typeAlias alias="SearchCondition" type="com.oyster.kong.domain.SearchCondition"/>
 	</typeAliases>
 	

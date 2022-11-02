@@ -15,9 +15,8 @@ import com.oyster.kong.domain.SearchCondition;
 public class BoardDaoImpl implements BoardDao {
 	
 	@Autowired
-	SqlSession session;
-	
-	 private static String namespace="com.oyster.kong.dao.BoardMapper.";
+	private SqlSession session;
+	private static String namespace="com.oyster.kong.dao.BoardMapper.";
 	
 	
 	@Override

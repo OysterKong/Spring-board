@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.oyster.kong.dao.MemberMapper">
+	
+	
+	<insert id="memberAdd" parameterType="MemberDto">
+		insert into
+		member(id, pwd, name, birth, post, addr1, addr2, addr3, sns, phone1, phone2, phone3, email1, email2, reg_date)
+		values(
+		#{id},#{pwd},#{name},#{birth},#{post},#{addr1},#{addr2},#{addr3},#{sns},#{phone1},#{phone2},#{phone3},#{email1},#{email2},#{reg_date})
+	</insert>
+	
+	<select id="login" parameterType="hashmap" resultType="MemberDto">
+		select id, pwd, name, birth, post, addr1, addr2, addr3, sns, phone1, phone2, phone3, email1, email2, reg_date from member
+		where id=#{id} and pwd=#{pwd}
+	</select>
+    
+	
+	
+</mapper>
